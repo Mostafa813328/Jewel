@@ -24,16 +24,17 @@
                 <img src="SLR Camera.png" alt="Camera Icon">
             </div>
              <!-- إضافة منطقة عرض الفيديو وزر التقاط الصورة -->
-        <div id="cameraStream" style="display: none; width:300px;">
-            <video id="video" autoplay></video>
-            <button onclick="capturePhoto()">التقاط الصورة</button>
-            <button onclick="stopCamera()">إغلاق الكاميرا</button>
+        <div id="cameraStream" style="display: none;">
+            <video id="video" autoplay style="width: 500px"></video>
+            <button onclick="capturePhoto()" style="margin-bottom: 15px;">التقاط الصورة</button>
+            <br>
+            <button onclick="stopCamera()" style="margin-bottom: 15px;">إغلاق الكاميرا</button>
         </div>
 
         <!-- إضافة منطقة لعرض الصورة الملتقطة -->
         <div id="photoPreview" style="display: none;">
             <h3>الصورة الملتقطة:</h3>
-            <img id="capturedImage" src="" alt="Captured Photo">
+            <img id="capturedImage" src="" alt="Captured Photo" style="width: 500px">
         </div>
         
             <button>تسجيل</button>
