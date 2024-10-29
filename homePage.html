@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الأطباق الرئيسية</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cairo, sans-serif;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .menu-container {
+    width: 100%;
+    max-width: 590px;
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    /* overflow: hidden; */
+  }
+
+  .menu-header {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #3b3b3b;
+    color: #fff;
+  }
+
+  .menu-header::before {
+    content: "";
+    background-image: url("banner-img-2.jpg");
+    background-size: cover;
+    background-position: left;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .dish-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #555;
+    background-color: #444;
+    margin: 10px;
+    border-radius: 8px;
+  }
+
+  .dish-image img {
+    width: 180px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-left: 10px;
+  }
+
+  .dish-details {
+    flex: 1;
+    direction: rtl;
+  }
+
+  .dish-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 5px;
+  }
+
+  .dish-description {
+    font-size: 19px;
+    color: #ddd;
+    margin: 8px;
+  }
+
+  .dish-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 8px;
+  }
+
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  .quantity-button {
+    background-color: #ffcc00;
+    border: none;
+    color: #333;
+    font-size: 35px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .quantity-input {
+    width: 30px;
+    text-align: center;
+    border: none;
+    font-size: 20px;
+    margin: 0 5px;
+    background-color: #555;
+    color: white;
+  }
+
+  .footer {
+    padding: 10px;
+    background-color: #444;
+    text-align: center;
+    font-size: 14px;
+    color: #ffcc00;
+    border-top: 1px solid #555;
+  }
+
+  .confirm-button {
+    display: block;
+    width: 100%;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .note {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    font-size: 20px;
+    color: #ffcc00;
+    margin-top: 5px;
+    text-align: right;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="menu-container">
+  <div class="menu-header">الأطباق الرئيسية</div>
+  
+  <!-- Dish 1 -->
+  <div class="dish-card">
+    <div class="dish-image">
+      <img src="images/a.png" alt="وجبة فراخ بانب">
+    </div>
+    <div class="dish-details">
+      <div class="dish-title">وجبة فراخ بانيه</div>
+      <div class="dish-description">مع الأرز أو مكرونة و بطاطس وسلطة طحينة و عيش</div>
+      <div class="dish-price">سعر الوجبة: 160</div>
+      <div class="quantity-control">
+        <button class="quantity-button" onclick="decrement(this)">-</button>
+        <input type="text" class="quantity-input" value="0" readonly>
+        <button class="quantity-button" onclick="increment(this)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dish 2 -->
+  <div class="dish-card">
+    <div class="dish-image">
+      <img src="images/b.png" alt="وجبة ربع فرخة">
+    </div>
+    <div class="dish-details">
+      <div class="dish-title">وجبة ربع فرخة</div>
+      <div class="dish-description">مع الأرز أو مكرونة و بطاطس وسلطة طحينة و عيش</div>
+      <div class="dish-price">سعر الوجبة: 140</div>
+      <div class="quantity-control">
+        <button class="quantity-button" onclick="decrement(this)">-</button>
+        <input type="text" class="quantity-input" value="0" readonly>
+        <button class="quantity-button" onclick="increment(this)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dish 3 -->
+  <div class="dish-card">
+    <div class="dish-image">
+      <img src="images/c.png" alt="وجبة نصف فرخة">
+    </div>
+    <div class="dish-details">
+      <div class="dish-title">وجبة نصف فرخة</div>
+      <div class="dish-description">مع الأرز أو مكرونة و بطاطس وسلطة طحينة و عيش</div>
+      <div class="dish-price">سعر الوجبة: 220</div>
+      <div class="quantity-control">
+        <button class="quantity-button" onclick="decrement(this)">-</button>
+        <input type="text" class="quantity-input" value="0" readonly>
+        <button class="quantity-button" onclick="increment(this)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dish 4 -->
+  <div class="dish-card">
+    <div class="dish-image">
+      <img src="images/d.png" alt="وجبة ثلث كاب مشوي">
+    </div>
+    <div class="dish-details">
+      <div class="dish-title">وجبة ثلث كباب مشوي</div>
+      <div class="dish-description">مع الأرز أو مكرونة و بطاطس وسلطة طحينة و عيش</div>
+      <div class="dish-price">سعر الوجبة: 300</div>
+      <div class="quantity-control">
+        <button class="quantity-button" onclick="decrement(this)">-</button>
+        <input type="text" class="quantity-input" value="0" readonly>
+        <button class="quantity-button" onclick="increment(this)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dish 5 -->
+  <div class="dish-card">
+    <div class="dish-image">
+      <img src="images/e.png" alt="وجبة ثلث كفته مشوي">
+    </div>
+    <div class="dish-details">
+      <div class="dish-title">وجبة ثلث كفته مشوي</div>
+      <div class="dish-description">مع الأرز أو مكرونة و بطاطس وسلطة طحينة و عيش</div>
+      <div class="dish-price">سعر الوجبة: 200</div>
+      <div class="quantity-control">
+        <button class="quantity-button" onclick="decrement(this)">-</button>
+        <input type="text" class="quantity-input" value="0" readonly>
+        <button class="quantity-button" onclick="increment(this)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dish 6 -->
+  <div class="dish-card">
+    <div class="dish-image">
+      <img src="images/f.png" alt="وجبة ثلث كباب و كفته">
+    </div>
+    <div class="dish-details">
+      <div class="dish-title">وجبة ثلث كباب و كفته</div>
+      <div class="dish-description">مع الأرز أو مكرونة و بطاطس وسلطة طحينة و عيش</div>
+      <div class="dish-price">سعر الوجبة: 280</div>
+      <div class="quantity-control">
+        <button class="quantity-button" onclick="decrement(this)">-</button>
+        <input type="text" class="quantity-input" value="0" readonly>
+        <button class="quantity-button" onclick="increment(this)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dish 7 -->
+  <div class="dish-card">
+    <div class="dish-image">
+      <img src="images/j.png" alt="وجبة ميكس جريل">
+    </div>
+    <div class="dish-details">
+      <div class="dish-title">وجبة ميكس جريل</div>
+      <div class="dish-description">مع الأرز أو مكرونة و بطاطس وسلطة طحينة و عيش</div>
+      <div class="dish-price">سعر الوجبة: 250</div>
+      <div class="quantity-control">
+        <button class="quantity-button" onclick="decrement(this)">-</button>
+        <input type="text" class="quantity-input" value="0" readonly>
+        <button class="quantity-button" onclick="increment(this)">+</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Dish 7 -->
+<div class="dish-card">
+    <div class="dish-image">
+      <img src="images/h.png" alt="وجبة ميكس جريل">
+    </div>
+    <div class="dish-details">
+      <div class="dish-title">وجبة ميكس جريل اسبشيال</div>
+      <div class="dish-description">مع الأرز أو مكرونة و بطاطس وسلطة طحينة و عيش</div>
+      <div class="dish-price">سعر الوجبة: 350</div>
+      <div class="quantity-control">
+        <button class="quantity-button" onclick="decrement(this)">-</button>
+        <input type="text" class="quantity-input" value="0" readonly>
+        <button class="quantity-button" onclick="increment(this)">+</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">ملاحظة هامة: يتم خصم 10% على العسكريين فقط ويتم اضافة 12% خدمة على السعر</div>
+  <button class="confirm-button">تأكيد الطلب</button>
+</div>
+
+<script>
+  function increment(button) {
+    const input = button.previousElementSibling;
+    let quantity = parseInt(input.value);
+    input.value = quantity + 1;
+  }
+  
+  function decrement(button) {
+    const input = button.nextElementSibling;
+    let quantity = parseInt(input.value);
+    if (quantity > 0) input.value = quantity - 1;
+  }
+</script>
+
+</body>
+</html>
